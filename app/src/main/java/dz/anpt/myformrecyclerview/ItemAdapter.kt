@@ -18,7 +18,8 @@ class ItemAdapter(
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just an Affirmation object.
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.item_title)
+        val textViewName: TextView = view.findViewById(R.id.item_textView)
+        val textViewAge: TextView = view.findViewById(R.id.item_textView2)
     }
 
     /**
@@ -27,7 +28,7 @@ class ItemAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         // create a new view
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+            .inflate(R.layout.item_layout, parent, false)
 
         return ItemViewHolder(adapterLayout)
     }
@@ -37,7 +38,8 @@ class ItemAdapter(
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-        holder.textView.text = item.age.toString()
+        holder.textViewName.text = item.name.toString()
+        holder.textViewAge.text = item.age.toString()
     }
 
     /**
