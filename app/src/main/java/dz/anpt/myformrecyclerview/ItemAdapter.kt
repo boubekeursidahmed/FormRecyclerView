@@ -1,9 +1,11 @@
 package dz.anpt.myformrecyclerview
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,8 @@ class ItemAdapter(
         val textViewName: TextView = view.findViewById(R.id.item_textView)
         val textViewAge: TextView = view.findViewById(R.id.item_textView2)
         val image : ImageView = view.findViewById(R.id.imageView)
+
+        val btn: Button = view.findViewById(R.id.button)
     }
 
     /**
@@ -43,6 +47,14 @@ class ItemAdapter(
         holder.textViewName.text = userInfo.name.toString()
         holder.textViewAge.text = userInfo.age.toString()
         holder.image.setImageResource(userInfo.img)
+
+        holder.btn.setOnClickListener {
+            val intent = Intent(context, MainActivity2::class.java)
+            intent.putExtra("name_user",userInfo.name)
+            intent.putExtra("age_user",userInfo.age)
+            intent.putExtra("img_user",userInfo.img)
+            context.startActivity(intent)
+        }
     }
 
     /**
