@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import dz.anpt.myformrecyclerview.model.User
@@ -20,6 +21,7 @@ class ItemAdapter(
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textViewName: TextView = view.findViewById(R.id.item_textView)
         val textViewAge: TextView = view.findViewById(R.id.item_textView2)
+        val image : ImageView = view.findViewById(R.id.imageView)
     }
 
     /**
@@ -37,9 +39,10 @@ class ItemAdapter(
      * Replace the contents of a view (invoked by the layout manager)
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val item = dataset[position]
-        holder.textViewName.text = item.name.toString()
-        holder.textViewAge.text = item.age.toString()
+        val userInfo = dataset[position]
+        holder.textViewName.text = userInfo.name.toString()
+        holder.textViewAge.text = userInfo.age.toString()
+        holder.image.setImageResource(userInfo.img)
     }
 
     /**

@@ -7,11 +7,12 @@ class ListUsers {
 
     fun loadUsers(): List<User> {
         return listOf<User>(
-            User("Mohamed", 34),
-            User("Omar", 66),
-            User("Ali", 4),
-            User("Houda", 43),
-            User("Ismail", 55),
+            User("Mohamed", R.drawable.img1, 43),
+            User("Omar", R.drawable.img2, 54),
+            User("Ali", R.drawable.img3, 32),
+            User("Houda", R.drawable.img4, 22),
+            User("Ismail", R.drawable.img1, 26),
+            User("Youcef", R.drawable.img3, 33),
 
             )
     }
